@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family:"Comic Neue", cursive;
+}
+.contac_cuerpo {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    grid-template-rows: 100px 1fr;
+    color: #ffffff;
+}
+.contac_cuerpo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../imagenes/contac.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0%, 100% 60%, 0 60%);
+    z-index: -1;
+}
+.barra {
+    width: 99%;
+    height: 8vh;
+    min-height: 10px;
+    max-height: 64px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 110px 1fr;
+    color: #ffffff;
+}
+
+/* comienzo */
+
+.noso_container{
+    max-width: 800px;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.noso_titulo {
+    font-size: 3rem;
+}
+
+.noso_parrafo {
+    margin-bottom: 20px;
+}
+/* informacion */
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+    
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+.info-text p {
+    margin: 0;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000000;
+    color: #4caf50;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #0f0063;
+    color: #8f8e8e;
+}
+
+/* estilos del formulario */
+
+.contact-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+    
+}
+
+.formulario_conta{
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+    margin-top: 90px;
+}
+.formulario_conta h2{
+    margin-bottom: 15px;
+    font-size: 35px
+    color; 
+}
+.formulario_conta a{
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: 700;
+}
+
+.formulario_conta form .campo, textarea{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 16px;
+    border: 1px solid #000000;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+.formulario_conta form textarea{
+    max-width: 530px;
+    min-width: 530px;
+    min-height: 140px;
+    max-height: 150px;
+}
+.formulario_conta .btn-enviar{
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: 0px;
+    background: rgb(9, 6, 151);
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.formulario_conta .btn-enviar:hover{
+    background: #2989af;
+}
