@@ -1,3 +1,40 @@
+<?php
+// Configuración de la conexión
+$servidor = "localhost:3307";
+$usuario = "root";
+$clave = "haider1028";
+$bd = "base_tencocomputer";
+
+// Conexión a la base de datos
+$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
+
+// Verifica si la conexión es exitosa
+if (!$coneccion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+// Variable para el mensaje de estado
+$mensajeEstado = "";
+
+if (isset($_POST['enviar'])) {
+    // Capturar datos del formulario
+    $nombre = $_POST['nombre'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['email']; //Cambié a 'email' para que coincida con el nombre en el formulario
+    $mensaje = $_POST['mensaje'];
+
+    // Consulta SQL corregida
+    $insertar = "INSERT INTO contacts (nombre, telefono, email, mensaje) 
+                 VALUES ('$nombre', '$telefono', '$correo', '$mensaje')";
+
+    // Ejecutar la consulta
+    if (mysqli_query($coneccion, $insertar)) {
+        $mensajeEstado = "Registro insertado exitosamente.";
+    } else {
+        $mensajeEstado = "Error al insertar: " . mysqli_error($coneccion);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +45,18 @@
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/contactanos.css">
     <link rel="stylesheet" href="../css/nosotros.css">
+
+    <script>
+        // Función para mostrar un mensaje de confirmación
+        function mostrarAlerta(mensaje) {
+            if (mensaje) {
+                alert(mensaje);
+            }
+        }
+    </script>
     
 </head>
-<body class="contac_cuerpo">
+<body class="contac_cuerpo" onload="mostrarAlerta('<?php echo $mensajeEstado; ?>')">
         <header class="barra">
             <nav class="nav container">
                 <div class="n_logo">
@@ -24,7 +70,7 @@
                         <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/contacto.html" class="barras_li">Contacto</a>
+                        <a href="contacto.php" class="barras_li">Contacto</a>
                     </li>
                     <li class="li_estilos">
                         <a href="../paginas/Registro.html" class="barras_li">Registro</a>
@@ -81,11 +127,21 @@
                     <a href="#"><i class="fab fa-correo"></i><img src="../imagenes/gmail.svg"> Tecnocomputer@gmail.com</a>
                     <a href="#"><i class="fab fa-map-marked"></i><img src="../imagenes/mapa.svg"> Ciudad: Cali, Pais: Colombia</a> 
                 </div>
-                <form action="#" autocomplete="off">
-                    <input type="text" name="nombre" placeholder="Tu Nombre completo" class="campo">
-                    <input type="text" name="telefono" placeholder="Numero.." class="campo">
-                    <input type="emal" name="email" placeholder="Tu Email" class="campo">
-                    <textarea name="mensaje" placeholder="Tu Mensaje... !Cuentanos¡"></textarea>
+                <form  method="POST" autocomplete="off">
+                    <input type="text" name="nombre" placeholder="Tu Nombre completo" class="campo" required>
+                    <input type="text" name="telefono" placeholder="Número..." class="campo" required>
+                    <input type="email" name="email" placeholder="Tu Email" class="campo" required>
+                    <textarea name="mensaje" placeholder="Tu Mensaje... ¡Cuéntanos!" required></textarea>
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                    <script src="https://www.google.com/recaptcha/api.js?render=6LfUdNwqAAAAAF8uMHVJOKBu52oF--2BWsoseH38"></script>
+                    <script>
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('6LfUdNwqAAAAAF8uMHVJOKBu52oF--2BWsoseH38', { action: 'submit' }).then(function(token) {
+                                document.getElementById('g-recaptcha-response').value = token;
+                            });
+                        });
+                    </script>
+                    
                     <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
                 </form>
             </div>
@@ -98,19 +154,19 @@
                         <h2 class="titulo2">Tecnocomputer</h2>
                         <ul class="n_menu nav__link--footer">
                             <li class="li_estilos">
-                                <a href="#" class="barras_li">Inicio</a>
+                                <a href="../index.html" class="barras_li">Inicio</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="#" class="barras_li">Solicitudes</a>
+                                <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="#" class="barras_li">Contacto</a>
+                                <a href="contacto.php" class="barras_li">Contacto</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="#" class="barras_li">Registro</a>
+                                <a href="../paginas/Registro.html" class="barras_li">Registro</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="#" class="barras_li">Nosotros</a>
+                                <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
                             </li>
                         </ul>
                     </div>

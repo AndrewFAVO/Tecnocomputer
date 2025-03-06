@@ -1,0 +1,133 @@
+:root{
+    --azulOscuro:#0B2545;
+}
+
+body{
+    background-color: var(--azulOscuro);
+    background-image: url('../imagenes/ll.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    background-attachment: fixed;
+    
+}
+.cabeza{
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #ffffff;
+}
+.contenedor {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+.tituloA{
+    font-weight: 300;
+    color: #fff;
+}
+
+.left-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-content h2 {
+    font-size: 2em;
+    color: #007acc;
+    text-align: center;
+}
+
+.left-content h2 span {
+    font-weight: bold;
+}
+
+.left-content p {
+    text-align: center;
+    font-size: 1.1em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.responsive-image {
+    max-width: 120%;
+    height: 43%;
+}
+
+.right-form {
+    flex: 1;
+    padding: 31px;
+    background-color: #0a0b74;
+}
+
+.right-form h2 {
+    font-size: 1.8em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.right-form p {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-bottom: 15px;
+}
+
+.input label {
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input input,
+.input select,
+.input textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.input input[type="submit"] {
+    background-color: #2a1dde;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.input input[type="submit"]:hover {
+    background-color: #005fa3;
+}
+
+.password-olvidada a {
+    color: #1f9ef3;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.password-olvidada a:hover {
+    text-decoration: underline;
+}
