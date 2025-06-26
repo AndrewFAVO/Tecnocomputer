@@ -1,21 +1,30 @@
 <?php
+session_start();
 include 'conexion.php';
 
-$usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario = $_POST['usuario'];
+    $contrasena = $_POST['contrasena'];
 
-$query = "SELECT * FROM usuarios WHERE usuario='$usuario' OR correo='$usuario'";
-$resultado = $conexion->query($query);
+    $query = "SELECT * FROM usuarios WHERE usuario='$usuario' OR correo='$usuario'";
+    $resultado = $conexion->query($query);
 
-if ($row = $resultado->fetch_assoc()) {
-    if (password_verify($contrasena, $row['contrasena'])) {
-        session_start();
-        $_SESSION['usuario'] = $usuario;
-        header("Location: ../index.html");
+    if ($row = $resultado->fetch_assoc()) {
+        if (password_verify($contrasena, $row['contrasena'])) {
+            $_SESSION['usuario'] = $row['usuario'];
+            $_SESSION['rol'] = $row['rol'];
+
+            if ($row['rol'] === 'admin') {
+                header('Location: ../paginas/admin.php');
+            } else {
+                header('Location: ../paginas/Registro.php');
+            }
+            exit;
+        } else {
+            echo "Contraseña incorrecta.";
+        }
     } else {
-        echo "Contraseña incorrecta.";
+        echo "Usuario no encontrado.";
     }
-} else {
-    echo "Usuario no encontrado.";
 }
 ?>

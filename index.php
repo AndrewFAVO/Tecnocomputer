@@ -51,7 +51,7 @@
                 <p class="cuerpo_parrafo">Una pagina diseñada para las novedades, 
                     solicitudes y usuario para interactuar con el, servicio tecnico en computadores, laptops y consolas.
                     Tu nos cuentas qué sucede con tu consola o computador para poderte cotizar, asesorar o reparar.</p>
-                <a href="../paginas/registro.html" class="Registro">Resgistrate ahora</a>
+                <a href="paginas/Registro.php" class="Registro">Resgistrate ahora</a>
             </section>
     </header>
 
@@ -95,7 +95,7 @@
                     <h2 class="titulo2">Si te interesa haz una solicitud para chequear o reparar tu dispositivo.</h2>
                     <p class="soli_parrafo"> Pulsa el botón para pedir una solicitud, con tu nombre de usuario de esta página web
                         te sera mas utíl para la mayor experiencia.</p>
-                    <a href="#" class="Registro">Ingresar</a>
+                    <a href="paginas/Solicitudes.php" class="Registro">Ingresar</a>
                 </div>
                 <figure class="soli_figura">
                     <img src="./imagenes/42517.jpg" class="soli_img">
@@ -124,7 +124,7 @@
                                 <a href="./paginas/Nosotros.php" class="barras_li">Nosotros</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="../api/logout.php?salida=ok" class="barras_li">Cerrar sesión</a>
+                                <a href="api/logout.php?salida=ok" class="barras_li">Cerrar sesión</a>
                             </li>
                         </ul>
                     </div>

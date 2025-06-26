@@ -20,7 +20,7 @@ if (isset($_POST['enviar'])) {
     // Capturar datos del formulario
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
-    $correo = $_POST['email']; //Cambié a 'email' para que coincida con el nombre en el formulario
+    $correo = $_POST['email']; 
     $mensaje = $_POST['mensaje'];
 
     // Consulta SQL corregida

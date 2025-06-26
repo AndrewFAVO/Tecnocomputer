@@ -1,34 +1,39 @@
 <?php
 session_start();
 include 'conexion.php';
-session_start();
-if (isset($_SESSION['usuario'])) {
-    echo "<p style='text-align:center;'>¡Bienvenido, " . $_SESSION['usuario'] . "!</p>";
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Login
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
 
     $query = "SELECT * FROM usuarios WHERE usuario='$usuario' OR correo='$usuario'";
     $resultado = $conexion->query($query);
 
-    if ($row = $resultado->fetch_assoc()) {
-        if (password_verify($contrasena, $row['contrasena'])) {
-            $_SESSION['usuario'] = $row['usuario'];
-            header("Location: ../paginas/Registro.php");
-        } else {
-            echo "Contraseña incorrecta";
-        }
+
+    if ($resultado->num_rows === 0) {
+    // El usuario no existe
+    header("Location: ../paginas/Registro.php?error=usuario_inexistente");
+    exit;
+} else {
+    $row = $resultado->fetch_assoc();
+
+    if (!password_verify($contrasena, $row['contrasena'])) {
+        // Contraseña incorrecta
+        header("Location: ../paginas/Registro.php?error=contrasena_incorrecta");
+        exit;
     } else {
-        echo "Usuario no encontrado";
+        // Inicio de sesión exitoso
+        $_SESSION['usuario'] = $row['usuario'];
+        $_SESSION['rol'] = $row['rol'];
+
+        if ($row['rol'] === 'admin') {
+            header("Location: ../paginas/admin.php");
+        } else {
+            header("Location: ../paginas/bienvenida.php");
+        }
+        exit;
+        }   
     }
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Consultar sesión
-    echo $_SESSION['usuario'] ?? '';
-} elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    // Cerrar sesión
-    session_destroy();
 }
 ?>
+

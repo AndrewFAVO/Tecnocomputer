@@ -13,14 +13,19 @@
     <header class="barra">
         <nav class="nav container">
             <div class="n_logo">
-                <h2 class="tituloA"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
+                <h2 class="tituloA"><a href="../index.php" class="barras_li">Tecnocomputer</a></h2>
             </div>     
             
             <ul class="n_menu n_menu--link">
-                <?php
+               <?php
                 session_start();
-                if (isset($_SESSION['usuario'])) {
-                    echo "<p style='text-align:center;'>¡Bienvenido, " . $_SESSION['usuario'] . "!</p>";
+
+                if (!isset($_SESSION['usuario'])) {
+                    // el usuario NO está logueado, muestra los formularios
+                } else {
+                    // ya está logueado
+                    echo "<h3>Bienvenido, " . $_SESSION['usuario'] . "</h3>";
+                    // NO hagas otro header("Location: Registro.php");
                 }
                 ?>
                 <div class="n_menu" id="user-info"></div>
@@ -127,7 +132,24 @@
         </div>
         <h3 class="footer__copyright">Derechos reservados &copy; Jaider Carmona</h3>
     </footer>
+<script>
+const params = new URLSearchParams(window.location.search);
+if (params.get("error") === "correo") {
+    alert("El correo ingresado no está registrado.");
+}
+const igual = new URLSearchParams(window.location.search);
+if (igual.get("error") === "correo_existente") {
+    alert("Ese correo ya está registrado. Usa otro o inicia sesión.");
+}
+const errorlogin = new URLSearchParams(window.location.search);
 
+if (errorlogin.get("error") === "usuario_inexistente") {
+    alert("El usuario o correo ingresado no está registrado.");
+}
+if (errorlogin.get("error") === "contrasena_incorrecta") {
+    alert("La contraseña o el usuario ingresado es incorrecta.");
+}
+</script>
 
 <script src="../js/registro_animacion.js"></script>
 <script src="../js/auth.js"></script>
