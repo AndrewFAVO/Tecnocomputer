@@ -12,23 +12,31 @@
     <header class="barra">
         <nav class="nav container">
             <div class="n_logo">
-                <h2 class="tituloA">Tecnocomputer</h2>
+                <h2 class="tituloA"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
             </div>     
+            
             <ul class="n_menu n_menu--link">
+                <?php
+                session_start();
+                if (isset($_SESSION['usuario'])) {
+                    echo "<p style='text-align:center;'>¡Bienvenido, " . $_SESSION['usuario'] . "!</p>";
+                }
+                ?>
+                <div class="n_menu" id="user-info"></div>
                 <li class="li_estilos">
-                    <a href="../index.html" class="barras_li">Inicio</a>
+                    <a href="../index.php" class="barras_li">Inicio</a>
                 </li>
                 <li class="li_estilos">
-                    <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
+                    <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
                 </li>
                 <li class="li_estilos">
                     <a href="../paginas/contacto.php" class="barras_li">Contacto</a>
                 </li>
                 <li class="li_estilos">
-                    <a href="../paginas/Registro.html" class="barras_li">Registro</a>
+                    <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                 </li>
                 <li class="li_estilos">
-                    <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
+                    <a href="../paginas/Nosotros.php" class="barras_li">Nosotros</a>
                 </li>
 
                 <img src="../imagenes/close.svg" class="n_salida">
@@ -55,23 +63,26 @@
         </div>
 
         
-        <div class="contenedor__login-register">
+        <div class="contenedor__login-register" >
        
-            <form action="" class="formulario__login">
+           <form class="formulario__login" action="../api/sesion.php" method="POST">
                 <h2>Iniciar Sesión</h2>
-                <input type="text" placeholder="Correo Electronico o Usuario">
-                <input type="password" placeholder="Contraseña">
-                <button>Entrar</button>
+                <input type="text" id="usuario" name="usuario" placeholder="Correo o Usuario" required />
+                <input type="password" id="password" name="contrasena" placeholder="Contraseña" required />
+                <button type="submit">Entrar</button>
+                <div class="password-olvidada">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
             </form>
 
             
-            <form action="" class="formulario__register">
-                <h2>Regístrarse</h2>
-                <input type="text" placeholder="Nombre completo">
-                <input type="text" placeholder="Correo Electronico">
-                <input type="text" placeholder="Usuario">
-                <input type="password" placeholder="Contraseña">
-                <button>Regístrarse</button>
+           <form class="formulario__register" action="../api/registrar.php" method="POST">
+                <h2>Registrarte</h2>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
+                <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required />
+                <input type="text" id="nuevo_usuario" name="usuario" placeholder="Nombre de usuario" required />
+                <input type="password" id="nuevo_password" name="contrasena" placeholder="Contraseña" required />
+                <button type="submit">Registrarse</button>
             </form>
         </div>
     </div>
@@ -85,19 +96,19 @@
                 <h2 class="titulo2">Tecnocomputer</h2>
                 <ul class="n_menu nav__link--footer">
                     <li class="li_estilos">
-                        <a href="../index.html" class="barras_li">Inicio</a>
-                    </li>
-                    <li class="li_estilos">
-                        <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
+                        <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
                     </li>
                     <li class="li_estilos">
                         <a href="../paginas/contacto.php" class="barras_li">Contacto</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/Registro.html" class="barras_li">Registro</a>
+                        <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
+                        <a href="../paginas/Nosotros.php" class="barras_li">Nosotros</a>
+                    </li>
+                    <li class="li_estilos">
+                        <a href="../api/logout.php?salida=ok" class="barras_li">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
@@ -116,8 +127,11 @@
         <h3 class="footer__copyright">Derechos reservados &copy; Jaider Carmona</h3>
     </footer>
 
-<script src="../js/Registro.js"></script>
+
+<script src="../js/registro_animacion.js"></script>
+<script src="../js/auth.js"></script>
 <script src="../js/menu.js"></script>
+
 </body>
 </html>
     

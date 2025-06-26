@@ -60,23 +60,29 @@ if (isset($_POST['enviar'])) {
         <header class="barra">
             <nav class="nav container">
                 <div class="n_logo">
-                    <h2 class="tituloA">Tecnocomputer</h2>
+                    <h2 class="tituloA"><a href="../index.php" class="barras_li">Tecnocomputer</a></h2>
                 </div>     
                 <ul class="n_menu n_menu--link">
+                    <?php
+                session_start();
+                if (isset($_SESSION['usuario'])) {
+                    echo "<p style='text-align:center;'>¡Bienvenido, " . $_SESSION['usuario'] . "!</p>";
+                }
+                ?>
                     <li class="li_estilos">
-                        <a href="../index.html" class="barras_li">Inicio</a>
+                        <a href="../index.php" class="barras_li">Inicio</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
+                        <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
                     </li>
                     <li class="li_estilos">
                         <a href="contacto.php" class="barras_li">Contacto</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/Registro.html" class="barras_li">Registro</a>
+                        <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                     </li>
                     <li class="li_estilos">
-                        <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
+                        <a href="../paginas/Nosotros.php" class="barras_li">Nosotros</a>
                     </li>
 
                     <img src="../imagenes/close.svg" class="n_salida">
@@ -154,19 +160,22 @@ if (isset($_POST['enviar'])) {
                         <h2 class="titulo2">Tecnocomputer</h2>
                         <ul class="n_menu nav__link--footer">
                             <li class="li_estilos">
-                                <a href="../index.html" class="barras_li">Inicio</a>
+                                <a href="../index.php" class="barras_li">Inicio</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
+                                <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
                             </li>
                             <li class="li_estilos">
                                 <a href="contacto.php" class="barras_li">Contacto</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="../paginas/Registro.html" class="barras_li">Registro</a>
+                                <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                             </li>
                             <li class="li_estilos">
-                                <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
+                                <a href="../paginas/Nosotros.php" class="barras_li">Nosotros</a>
+                            </li>
+                            <li class="li_estilos">
+                                <a href="../api/logout.php?salida=ok" class="barras_li">Cerrar sesión</a>
                             </li>
                         </ul>
                     </div>
