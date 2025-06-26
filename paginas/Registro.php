@@ -24,7 +24,7 @@
                     // el usuario NO está logueado, muestra los formularios
                 } else {
                     // ya está logueado
-                    echo "<h3>Bienvenido, " . $_SESSION['usuario'] . "</h3>";
+                   echo "<p style='text-align:center;'>¡Bienvenido, " . $_SESSION['usuario'] . "!</p>";
                     // NO hagas otro header("Location: Registro.php");
                 }
                 ?>
@@ -88,6 +88,15 @@
                 <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required />
                 <input type="text" id="nuevo_usuario" name="usuario" placeholder="Nombre de usuario" required />
                 <input type="password" id="nuevo_password" name="contrasena" placeholder="Contraseña" required />
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                    <script src="https://www.google.com/recaptcha/api.js?render=6LfUdNwqAAAAAF8uMHVJOKBu52oF--2BWsoseH38"></script>
+                    <script>
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('6LfUdNwqAAAAAF8uMHVJOKBu52oF--2BWsoseH38', { action: 'submit' }).then(function(token) {
+                                document.getElementById('g-recaptcha-response').value = token;
+                            });
+                        });
+                    </script>
                 <button type="submit">Registrarse</button>
             </form>
         </div>
@@ -99,7 +108,7 @@
     <section class="footer__container container_fooster">
         <div class="soli_container container">
             <div class="soli_texto nav--footer">
-                <h2 class="titulo2"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
+                <h2 class="titulo2"><a href="../index.php" class="barras_li">Tecnocomputer</a></h2>
                 <ul class="n_menu nav__link--footer">
                     <li class="li_estilos">
                         <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
@@ -134,29 +143,32 @@
     </footer>
 <script>
 const params = new URLSearchParams(window.location.search);
-if (params.get("error") === "correo") {
-    alert("El correo ingresado no está registrado.");
-}
-const igual = new URLSearchParams(window.location.search);
-if (igual.get("error") === "correo_existente") {
-    alert("Ese correo ya está registrado. Usa otro o inicia sesión.");
-}
-const errorlogin = new URLSearchParams(window.location.search);
+const error = params.get("error");
+const registro = params.get("registro");
 
-if (errorlogin.get("error") === "usuario_inexistente") {
-    alert("El usuario o correo ingresado no está registrado.");
+if (registro === "exito") {
+    alert("¡Usuario registrado con éxito! Ahora puedes iniciar sesión.");
 }
-if (errorlogin.get("error") === "contrasena_incorrecta") {
+
+switch (error) {
+  case "correo":
+    alert("El correo ingresado no está registrado.");
+    break;
+  case "correo_existente":
+    alert("Ese correo ya está registrado. Usa otro o inicia sesión.");
+    break;
+  case "usuario_inexistente":
+    alert("El usuario o correo ingresado no está registrado.");
+    break;
+  case "contrasena_incorrecta":
     alert("La contraseña o el usuario ingresado es incorrecta.");
+    break;
 }
 </script>
 
 <script src="../js/registro_animacion.js"></script>
-<script src="../js/auth.js"></script>
+
 <script src="../js/menu.js"></script>
 
-</body>
-</html>
-    
 </body>
 </html>

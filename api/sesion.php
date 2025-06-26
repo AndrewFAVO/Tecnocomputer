@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($row['rol'] === 'admin') {
             header("Location: ../paginas/admin.php");
         } else {
-            header("Location: ../paginas/bienvenida.php");
+            header("Location: ../paginas/Registro.php");
         }
         exit;
         }   

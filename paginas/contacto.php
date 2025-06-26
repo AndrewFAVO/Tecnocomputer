@@ -147,7 +147,6 @@ if (isset($_POST['enviar'])) {
                             });
                         });
                     </script>
-                    
                     <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
                 </form>
             </div>

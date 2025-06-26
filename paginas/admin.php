@@ -6,7 +6,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
 }
 
 include '../api/conexion.php';
-$resultado = $conexion->query("SELECT nombre_completo, correo, usuario, rol, contrasena  FROM usuarios");
+$resultado = $conexion->query("SELECT id, nombre_completo, correo, usuario, rol, contrasena FROM usuarios");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +50,9 @@ $resultado = $conexion->query("SELECT nombre_completo, correo, usuario, rol, con
                 <td><?= htmlspecialchars($row['usuario']) ?></td>
                 <td><?= htmlspecialchars($row['contrasena']) ?></td>
                 <td><?= htmlspecialchars($row['rol']) ?></td>
+                <td>
+                <a href="../api/editar_edicion.php?id=<?= $row['id'] ?>">Editar</a>
+                </td>
             </tr>
             <?php endwhile; ?>
         </table>
