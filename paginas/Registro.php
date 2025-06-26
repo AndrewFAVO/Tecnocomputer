@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../imagenes/trabajo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilo-registro.css">
     <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/normalize.css">
 </head>
 <body>
     <header class="barra">
@@ -71,7 +72,7 @@
                 <input type="password" id="password" name="contrasena" placeholder="Contraseña" required />
                 <button type="submit">Entrar</button>
                 <div class="password-olvidada">
-                        <a href="#">¿Olvidaste tu contraseña?</a>
+                        <a href="../contraseña/recuperar.php">¿Olvidaste tu contraseña?</a>
                     </div>
             </form>
 
@@ -93,7 +94,7 @@
     <section class="footer__container container_fooster">
         <div class="soli_container container">
             <div class="soli_texto nav--footer">
-                <h2 class="titulo2">Tecnocomputer</h2>
+                <h2 class="titulo2"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
                 <ul class="n_menu nav__link--footer">
                     <li class="li_estilos">
                         <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>

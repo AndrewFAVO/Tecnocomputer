@@ -106,7 +106,7 @@
             <section class="footer__container container_fooster">
                 <div class="soli_container container">
                     <div class="soli_texto nav--footer">
-                        <h2 class="titulo2">Tecnocomputer</h2>
+                    <h2 class="titulo2"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
                         <ul class="n_menu nav__link--footer">
                             <li class="li_estilos">
                                 <a href="index.php" class="barras_li">Inicio</a>

@@ -60,7 +60,6 @@ if (isset($_POST['enviar'])) {
         <header class="barra">
             <nav class="nav container">
                 <div class="n_logo">
-<<<<<<< HEAD
                     <h2 class="tituloA"><a href="../index.php" class="barras_li">Tecnocomputer</a></h2>
                 </div>     
                 <ul class="n_menu n_menu--link">
@@ -75,32 +74,15 @@ if (isset($_POST['enviar'])) {
                     </li>
                     <li class="li_estilos">
                         <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
-=======
-                    <h2 class="tituloA">Tecnocomputer</h2>
-                </div>     
-                <ul class="n_menu n_menu--link">
-                    <li class="li_estilos">
-                        <a href="../index.html" class="barras_li">Inicio</a>
-                    </li>
-                    <li class="li_estilos">
-                        <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
->>>>>>> 3525fb2c9a3c5cd2646bfa37b9b351e428045658
                     </li>
                     <li class="li_estilos">
                         <a href="contacto.php" class="barras_li">Contacto</a>
                     </li>
                     <li class="li_estilos">
-<<<<<<< HEAD
                         <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                     </li>
                     <li class="li_estilos">
                         <a href="../paginas/Nosotros.php" class="barras_li">Nosotros</a>
-=======
-                        <a href="../paginas/Registro.html" class="barras_li">Registro</a>
-                    </li>
-                    <li class="li_estilos">
-                        <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
->>>>>>> 3525fb2c9a3c5cd2646bfa37b9b351e428045658
                     </li>
 
                     <img src="../imagenes/close.svg" class="n_salida">
@@ -175,26 +157,18 @@ if (isset($_POST['enviar'])) {
             <section class="footer__container container_fooster">
                 <div class="soli_container container">
                     <div class="soli_texto nav--footer">
-                        <h2 class="titulo2">Tecnocomputer</h2>
+                        <h2 class="titulo2"><a href="../index.html" class="barras_li">Tecnocomputer</a></h2>
                         <ul class="n_menu nav__link--footer">
                             <li class="li_estilos">
-<<<<<<< HEAD
                                 <a href="../index.php" class="barras_li">Inicio</a>
                             </li>
                             <li class="li_estilos">
                                 <a href="../paginas/Solicitudes.php" class="barras_li">Solicitudes</a>
-=======
-                                <a href="../index.html" class="barras_li">Inicio</a>
-                            </li>
-                            <li class="li_estilos">
-                                <a href="../paginas/Solicitudes.html" class="barras_li">Solicitudes</a>
->>>>>>> 3525fb2c9a3c5cd2646bfa37b9b351e428045658
                             </li>
                             <li class="li_estilos">
                                 <a href="contacto.php" class="barras_li">Contacto</a>
                             </li>
                             <li class="li_estilos">
-<<<<<<< HEAD
                                 <a href="../paginas/Registro.php" class="barras_li">Registro</a>
                             </li>
                             <li class="li_estilos">
@@ -202,12 +176,6 @@ if (isset($_POST['enviar'])) {
                             </li>
                             <li class="li_estilos">
                                 <a href="../api/logout.php?salida=ok" class="barras_li">Cerrar sesión</a>
-=======
-                                <a href="../paginas/Registro.html" class="barras_li">Registro</a>
-                            </li>
-                            <li class="li_estilos">
-                                <a href="../paginas/Nosotros.html" class="barras_li">Nosotros</a>
->>>>>>> 3525fb2c9a3c5cd2646bfa37b9b351e428045658
                             </li>
                         </ul>
                     </div>
